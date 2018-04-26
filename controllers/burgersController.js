@@ -24,7 +24,7 @@ router.post("/api/newburger", function (req, res) {
 
 
 router.post("/api/eatburger", function (req, res) {
-  var condition = "burger_name = " + req.body.name;
+  var condition = "burger_name = " + "'" + req.body.name +"'";
 
   console.log("condition", condition);
 
