@@ -1,13 +1,37 @@
 // Import the ORM to create functions that will interact with the database.
 var orm = require("../config/orm.js");
-sortResults(results) {
-
-  return sortedReusltsObject;
+var count = 0;
+function sortResults(results) {
+  var newBurgersArray = [];
+  var oldBurgersArray = [];
+  console.log('pls read me', count);
+  count++;
+  try {
+  results.forEach(function(item){
+     if(item.devoured === 0){
+      var newBurgerName = {newBurgerName: item.burger_name};
+      newBurgersArray.push(newBurgerName);
+     }else{
+      var oldBurgerName = {oldBurgerName: item.burger_name};
+      oldBurgersArray.push(oldBurgerName);
+     }
+  });
+} catch(e) {
+  console.log('error:',results,e);
 }
+
+  var sortedReuslts = {
+    newBurgers: newBurgersArray,
+    oldBurgers: oldBurgersArray
+  };
+
+  return sortedReuslts;
+};
+
+
 var Burger = {
   all: function(cb) {
     orm.all("burgers", function(res) {
-      
       cb(sortResults(res));
     });
   },

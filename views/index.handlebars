@@ -1,4 +1,3 @@
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
 
 <div class="container">
   <div class="row">
@@ -6,27 +5,18 @@
     <div class="col-md-6">
       <div class="todolist not-done">
         <h1>Fresh Burgers!</h1>
-        <input type="text" class="form-control add-todo" placeholder="Add todo">
-        <button id="checkAll" class="btn btn-success">Mark all as eatten</button>
-
+        <input type="text" class="form-control add-todo" placeholder="Add a burger">
         <hr>
         <ul id="sortable" class="list-unstyled">
-          
           {{#each newBurgers}}
           <li class="ui-state-default">
             <div class="checkbox">
-              <label>
+              <label class = "check">
                 <input type="checkbox" value="" />{{newBurgerName}}</label>
             </div>
           </li>
           {{/each}}
-
         </ul>
-        <div class="todo-footer">
-          <strong>
-            <span class="count-todos"></span>
-          </strong> burgers Left
-        </div>
       </div>
     </div>
 
@@ -36,11 +26,7 @@
         <ul id="done-items" class="list-unstyled">
 
           {{#each oldBurgers}}
-          <li>{{oldBurgerName}}
-            <button class="remove-item btn btn-default btn-xs pull-right">
-              <span class="glyphicon glyphicon-remove"></span>
-            </button>
-          </li>
+          <li>{{oldBurgerName}}</li>
           {{/each}}
 
         </ul>
